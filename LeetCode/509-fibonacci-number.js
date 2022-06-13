@@ -31,17 +31,8 @@
 //p: we first know the values of 0 and 1, which are just 0 and 1 respectively. we populate an array with these first values. then we use a for loop that starts at i=2, and proceed until n. at each loop, we add f(i-1) and f(i-2) to pusth f(i) into the array (stack). thus we will be able to return the last value for i=n.
 var fib = function (n) {
   let arr = [0, 1];
-  if (n == 0) {
-    return 0;
-  }
-  if (n == 1) {
-    return 1;
-  }
   for (let i = 2; i <= n; i++) {
-    if (i != n) {
-      arr.push(arr[i - 1] + arr[i - 2]);
-    } else {
-      return arr[i - 1] + arr[i - 2];
-    }
+    arr[i] = arr[i - 1] + arr[i - 2];
   }
+  return arr[n];
 };
