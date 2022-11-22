@@ -38,4 +38,36 @@
 //  * @param {ListNode} head
 //  * @return {boolean}
 //  */
-var hasCycle = function (head) {};
+
+//p: we are given a listnode object, pos is -1 or a valid index which is not a parameter.
+//r: return true or false if there exists a cycle in the linked list. this is true if the tail's next pointer is another value in the list. pos is the index of that node.
+//e: in the examples, the tail's next value is not null and is pointing to another node val.
+//p: use a hash table to log all the nodes we've seen. if we've seen a node before, return true. keep running until we've seen a node before or run into the tail (next is null). space is o(n).
+//  alternatively, use floyd's cycle finding algorithm where we employ two trackers, one slow and one fast (slow progresses one node at a time, fast progresses two nodes at a time.). if there is no cycle, the fast will end the search o(n), but if there is a cycle, it will be o(n+k) or simpley o(n) since fast will end up catching up with slow. space is o(1).
+var hasCycle = function (head) {
+  if (head == null) {
+    return false;
+  }
+
+  let slow = head;
+  let fast = head.next;
+
+  while (slow !== fast) {
+    if (fast == null || fast.next == null) {
+      return false;
+    }
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  return true;
+
+  // let seenStack = [];
+  // while(head!==null){
+  //     if(seenStack.includes(head)){
+  //         return true;
+  //     }
+  //     seenStack.push(head);
+  //     head = head.next;
+  // }
+  // return false;
+};
