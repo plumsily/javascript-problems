@@ -28,6 +28,6 @@
 
 //p: magazine is a string that should contain all the letters needed to make ransomNote.
 //r: we must return a boolean true or false based on if all the letters to make ransomNote can be taken from magazine, but only once per letter.
-//e: in the above examples, we see that all letters in ransomNote is unique and must be mapped to a letter in magazine. thus, there can be no repeated letters in ransomNote from one letter in magazine. letters can be unused in magazine as long as all the letters for ransomNote is found.
+//e:
 //p:
 var canConstruct = function (ransomNote, magazine) {};
