@@ -37,6 +37,11 @@
 
 // Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
 
+//p: the parameters are nums, an array of integers, and a target of integer value in the same range as nums' elements.
+//r: we must return an array of two integers that point to the indices of the elements of nums that add up to target. only one valid answer exists within nums. further, we cannot use the same element twice. independent of order.
+//e: in the above examples, we see that we return a 2 element array of indices that add up to the target value.
+//p: this is a good scenario to use a hash map, where we store the index and value of the elements as we traverse the nums array. we then subtract the current element from the target and store that in a temporary variable. we can then check if the hash map object already contains an item that has the temporary variable value, with hasOwn. if this returns true, we can immediately return the index of the temporary variable and the index from the hash map of its complement. otherwise, we add the value into the hash map.
+
 // /**
 //  * @param {number[]} nums
 //  * @param {number} target
